@@ -11,7 +11,7 @@ class DataKeluarMasukController extends Controller
     {
         $count = [
             'jumlah_keluar' => DataKeluarMasuk::where('jenis', 'keluar')->whereDate('tanggal', '=', now())->count(),
-            'jumlah_masuk' => DataKeluarMasuk::where('jenis', 'masuk')->whereDate0('tanggal', '=', now())->count(),
+            'jumlah_masuk' => DataKeluarMasuk::where('jenis', 'masuk')->whereDate('tanggal', '=', now())->count(),
         ];
 
         $query = DataKeluarMasuk::query();
