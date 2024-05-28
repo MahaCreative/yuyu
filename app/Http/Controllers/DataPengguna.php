@@ -28,7 +28,7 @@ class DataPengguna extends Controller
             "name" => "required|min:6|max:50",
             "email" => "required|email|unique:users,email",
             "password" => "nullable",
-            "kode_ktp" => "required|string|min:10",
+            "kode_ktp" => "required|string|min:6",
         ]);
         $user = User::create([
             "name" => $request->name,
