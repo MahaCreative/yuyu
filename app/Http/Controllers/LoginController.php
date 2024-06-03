@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -17,9 +18,12 @@ class LoginController extends Controller
     {
         $credentials = $request->only('email', 'password');
         $remember = $request->has('remember');
-
         if (Auth::attempt($credentials, $remember)) {
             $user = Auth::user();
+
+
+
+
             $token = $user->createToken('authToken')->plainTextToken;
         }
 

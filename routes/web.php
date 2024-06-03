@@ -31,10 +31,11 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('', [HomeController::class, 'index'])->name('home');
     Route::post('pilih-menu', [PilihMenuController::class, 'store'])->name('pilih-menu');
-});
-Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+Route::middleware(['auth', 'role:admin'])->group(function () {
+
 
     Route::get('profile-saya', [ProfileSayaController::class, 'index'])->name('profile-saya');
     Route::post('update-profile-saya', [ProfileSayaController::class, 'update'])->name('update-profile-saya');
